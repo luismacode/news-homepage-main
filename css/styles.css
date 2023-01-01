@@ -1,3 +1,12 @@
+@font-face {
+  font-family: "Inter";
+  src: url(../assets/fonts/Inter-VariableFont.woff) format("woff"),
+    url(../assets/fonts/Inter-VariableFont.woff2) format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 html {
   font-size: 10px;
 }
@@ -8,11 +17,107 @@ html {
 }
 body {
   font-size: 1.6rem;
+  margin: 0;
 }
-.attribution {
+p {
+  font-size: 1.5rem;
+}
+figure {
+  margin: 0;
+}
+img {
+  display: block;
+  max-width: 100%;
+}
+ul {
+  margin: 0;
+  list-style: none;
+}
+li {
+  padding-left: 0;
+}
+a {
+  text-decoration: none;
+}
+:root {
+  --soft-orange: hsl(35, 77%, 62%);
+  --soft-red: hsl(5, 85%, 63%);
+  --off-white: hsl(36, 100%, 99%);
+  --grayish-blue: hsl(233, 8%, 79%);
+  --dark-grayish-blue: hsl(236, 13%, 42%);
+  --very-dark-blue: hsl(240, 100%, 5%);
+  --very-dark-blue-transparency: hsl(240, 100%, 5%, 0.6);
+  --font-inter: "Inter", sans-serif;
+}
+
+.font-regular {
+  font-weight: 400;
+}
+.font-bold {
+  font-weight: 700;
+}
+.font-extrabold {
+  font-weight: 800;
+}
+.wrapper {
+  width: min(90%, 120rem);
+}
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+.mb-6 {
+  margin-bottom: 6rem;
+}
+
+.homepage {
+  font-family: var(--font-inter);
+  background-color: var(--off-white);
+  min-height: 100vh;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2em 0 2em 0;
+}
+.nav__menu {
+  display: none;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--very-dark-blue-transparency);
+  top: 0;
+  left: 0;
+}
+.menu {
+  position: absolute;
+  background-color: var(--off-white);
+  width: 65%;
+  right: 0;
+  height: inherit;
+  padding-top: 10rem;
+  padding-left: 2rem;
+}
+.menu__item {
+  margin-bottom: 2.5rem;
+}
+.menu__link {
+  color: var(--dark-grayish-blue);
+  font-size: 1.65rem;
+  font-weight: 700;
+}
+.icon-close {
+  position: absolute;
+  top: 1.6em;
+  right: 1.3em;
+  z-index: 2;
+}
+.footer {
   font-size: 11px;
   text-align: center;
 }
-.attribution a {
+.attribution {
   color: hsl(228, 45%, 44%);
 }
