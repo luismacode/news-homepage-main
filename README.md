@@ -32,8 +32,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [solution URL](https://your-solution-url.com)
-- Live Site URL: [live site URL](https://your-live-site-url.com)
+- Solution URL: [solution URL](https://www.frontendmentor.io/solutions/news-homepage-eEU4ibHzCH)
+- Live Site URL: [live site URL](https://luismacode.github.io/news-homepage-main/)
 
 ## My process
 
