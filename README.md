@@ -1,6 +1,6 @@
 # Frontend Mentor - News homepage solution
 
-This is a solution to the [News homepage challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/news-homepage-H6SWTa1MFl). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
+This is a solution to the [News homepage challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/news-homepage-H6SWTa1MFl). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
 ## Table of contents
 
@@ -14,9 +14,6 @@ This is a solution to the [News homepage challenge on Frontend Mentor](https://w
   - [Continued development](#continued-development)
   - [Useful resources](#useful-resources)
 - [Author](#author)
-- [Acknowledgments](#acknowledgments)
-
-**Note: Delete this note and update the table of contents based on what sections you keep.**
 
 ## Overview
 
@@ -29,20 +26,14 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
-
-Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
-
-Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free option, so you don't need to purchase it. 
-
-Then crop/optimize/edit your image however you like, add it to your project, and update the file path in the image above.
-
-**Note: Delete this note and the paragraphs above when you add your screenshot. If you prefer not to add a screenshot, feel free to remove this entire section.**
+![screenshot-news-homepage-desktop](./screenshots/news-homepage-desktop.jpg)
+![screenshot-news-homepage-mobile](./screenshots/news-homepage-mobile.jpeg)
+![screenshot-news-homepage-menu-mobile](./screenshots/news-homepage-menu-mobile.jpg)
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [solution URL](https://your-solution-url.com)
+- Live Site URL: [live site URL](https://your-live-site-url.com)
 
 ## My process
 
@@ -53,59 +44,94 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 - Flexbox
 - CSS Grid
 - Mobile-first workflow
-- [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
-
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
+- javascript
+- BEM Naming
 
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
-
-To see how you can add code snippets, see below:
+The tag structure of the Navigation Mobile component is as follows
 
 ```html
-<h1>Some HTML code I'm proud of</h1>
+  <div class="nav__mobile">
+    <img
+      class="icon-close"
+      src="./assets/images/icon-menu-close.svg"
+      alt="icon-close"
+    >
+    <div class="nav__column">
+      <ul class="menu">
+        <li class="menu__item">
+          <a class="menu__link" href="#">Home</a>
+        </li>
+        <li class="menu__item">
+          <a class="menu__link" href="#">New</a>
+        </li>
+        <li class="menu__item">
+          <a class="menu__link" href="#">Popular</a>
+        </li>
+        <li class="menu__item">
+          <a class="menu__link" href="#">Trending</a>
+        </li>
+        <li class="menu__item">
+          <a class="menu__link" href="#">Categories</a>
+        </li>
+      </ul>
+    </div>
+  </div>
 ```
+
+Here we can see the styles that are added to show and hide navigation on mobile devices.
+
 ```css
-.proud-of-this-css {
-  color: papayawhip;
+.nav__mobile {
+  opacity: 0;
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--very-dark-blue-transparency);
+  z-index: 2;
+  transition: opacity 0.6s ease-out;
+}
+.nav__mobile--visible {
+  opacity: 1;
+  pointer-events: auto;
 }
 ```
+
+When we click on the menu icon we add the appropriate class to make visible the navigation links that were hidden and click on the close icon to hide the navigation again.
+
 ```js
-const proudOfThisFunc = () => {
-  console.log('🎉')
-}
+  const iconMenu = document.querySelector(".menu-icon"),
+  iconClose = document.querySelector(".icon-close"),
+  navMobile = document.querySelector(".nav__mobile");
+
+iconMenu.addEventListener("click", () => {
+  navMobile.classList.add("nav__mobile--visible");
+});
+
+iconClose.addEventListener("click", () => {
+  navMobile.classList.remove("nav__mobile--visible");
+});
+
 ```
-
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
-
-**Note: Delete this note and the content within this section and replace with your own learnings.**
 
 ### Continued development
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
-
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
+Maybe I would need to improve the handling of grid in CSS and be able to make spacings of text and sections a little more precise and consistent. But in general I had a lot of fun doing this challenge because I could reinforce CSS grid and combine with flexbox.también using the opacity property instead of the none value of the display property to hide the mobile navigation, as it is an animatable (that can be animated) property allowed me to use transitions.
 
 ### Useful resources
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
-
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
+- [grid-css](https://developer.mozilla.org/en-US/docs/Web/CSS/grid) - this resource helped me to review concepts and apply them to the to the main news content.
+- [transition-css](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Transitions/Using_CSS_transitions) - this resource helped me to review concepts and apply them to the challenge.
+- [opacity-css](https://developer.mozilla.org/en-US/docs/Web/CSS/opacity)  -this resource helped me to be able to hide the navigation element in mobile devices
+- [pointer-events](https://developer.mozilla.org/en-US/docs/Web/CSS/pointer-events)-this resource helped me to be able to handle when a graphic element  can be target of the events of pointers.
+- [Animatable-property](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animated_properties)-This MDN resource helped me know which CSS properties are animatable (that can be animated).
 
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
-
-**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
-
-## Acknowledgments
-
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
-
-**Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel free to delete this section entirely.**
+- Linkedin - [luismachaca](https://www.linkedin.com/in/luismachaca)
+- Frontend Mentor - [@luismacode](https://www.frontendmentor.io/profile/luismacode)
+- Twitter - [@luismacode](https://www.twitter.com/luismacode)
